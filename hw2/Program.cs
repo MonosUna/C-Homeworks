@@ -118,6 +118,10 @@ class Program {
         while (true) {
             Console.WriteLine("Введите марку автомобиля или done для остановки ввода: ");
             string input = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(input)) {
+                Console.WriteLine("Пустой ввод, попробуйте снова");
+                continue;
+            }
             if (input.ToLower() == "done") break;
             try {
                 CarType type = (CarType)Enum.Parse(typeof(CarType), input, true);
